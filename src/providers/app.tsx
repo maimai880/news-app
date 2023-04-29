@@ -1,15 +1,15 @@
-import React from "react";
 import {CircularProgress, Grid, ThemeProvider} from "@mui/material";
 import {theme} from "@/theme.ts";
+import {FC, ReactNode, Suspense} from "react";
 
 interface Props {
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 
-export const AppProvider: React.FC<Props> = (props) => {
+export const AppProvider: FC<Props> = (props) => {
   return (
     <ThemeProvider theme={theme}>
-      <React.Suspense
+      <Suspense
         fallback={
           <Grid container width="100%" height="100%" alignItems='center' justifyContent='center'>
             <Grid item><CircularProgress/></Grid>
@@ -17,8 +17,7 @@ export const AppProvider: React.FC<Props> = (props) => {
         }
       >
         {props.children}
-      </React.Suspense>
+      </Suspense>
     </ThemeProvider>
   );
 };
-//TODO: Reactインポートの廃止
