@@ -1,4 +1,4 @@
-import {AppProvider} from "./providers/app.tsx";
+import {AppProvider} from "@/providers/app.tsx";
 import {Header} from "@/components/Header";
 
 const App = () => {
@@ -10,4 +10,3 @@ const App = () => {
 };
 
 export default App
-//TODO: ./の@への置き換え
