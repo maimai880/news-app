@@ -1,5 +1,6 @@
 import {ArticleCard} from './ArticleCard';
 import {FC} from "react";
+import {Box} from "@mui/material";
 
 const articles = [
   {
@@ -14,14 +15,14 @@ const articles = [
 
 export const ArticleList: FC = () => {
   return (
-    <>
+    <Box px={3}>
       {articles.map((article) => (
         <ArticleCard
           article={article}
           key={article.url}
         />
       ))}
-    </>
+    </Box>
   );
 };
 
