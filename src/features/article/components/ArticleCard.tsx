@@ -1,13 +1,14 @@
 import {Card, CardActionArea, CardContent, CardMedia, Typography} from '@mui/material';
-import {formatDistanceToNow} from 'date-fns';
 import {FC} from "react";
-import {ja} from "date-fns/locale";
+import {useTranslation} from "@/features/language";
 
 interface Props {
   article: { title: string, url: string, imageUrl: string, companyName: string, companyLogoUrl: string, date: Date }
 }
 
 export const ArticleCard: FC<Props> = ({article}) => {
+  const {t} = useTranslation()
+
   return (
     <Card sx={{display: 'flex', mb: 2, height: 162, borderRadius: 2}}>
       <CardActionArea
@@ -44,7 +45,7 @@ export const ArticleCard: FC<Props> = ({article}) => {
           </Typography>
 
           <Typography variant="body2" color="text.secondary" mt="auto">
-            {formatDistanceToNow(article.date, {addSuffix: true, locale: ja})}
+            {t("{投稿時間}前", {date: article.date})}
           </Typography>
         </CardContent>
 

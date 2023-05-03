@@ -1,11 +1,14 @@
 import {FC} from "react";
 import {Button, TextField} from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
+import {useTranslation} from "@/features/language";
 
 export const SearchBar: FC = () => {
+  const {t} = useTranslation()
+
   return (<>
       <TextField
-        placeholder="Search news"
+        placeholder={t("ニュースを検索")}
         size="small"
         sx={{width: 410, "& fieldset": {borderRadius: 0}}}
       />
