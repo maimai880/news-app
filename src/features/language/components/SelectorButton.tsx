@@ -30,7 +30,7 @@ export const SelectorButton: FC<Props> = (props) => {
       aria-expanded={props.open ? 'true' : undefined}
       disableElevation
     >
-      Language
+      Country
     </Button>
   )
 }

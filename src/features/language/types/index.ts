@@ -1,1 +1,1 @@
-export type Language = "ja" | "en" | "es" | "de" | "fr"
+export type Country = "jp" | "us" | "fr" | "de" | "it"

@@ -1,7 +1,7 @@
 import {format, formatDistanceToNow} from "date-fns";
 import {enUS} from "date-fns/locale";
 
-export const en = {
+export const us = {
   "ニュースを検索": "Search News",
   "今日のニュース": "Today's News",
   "{今日}": () => format(new Date(), "EEEE, d MMMM", {locale: enUS}),

@@ -2,12 +2,12 @@ import {ArticleCard} from './ArticleCard';
 import {FC} from 'react';
 import {Box} from '@mui/material';
 import {useAtom} from 'jotai';
-import {languageAtom} from "@/features/language";
+import {countryAtom} from "@/features/language";
 import {useNews} from "@/features/article/api/getArticles.ts";
 
 export const ArticleList: FC = () => {
-  const [language] = useAtom(languageAtom);
-  const {data: articles, isLoading, isError} = useNews({language});
+  const [language] = useAtom(countryAtom);
+  const {data: articles, isLoading, isError} = useNews({country: language});
 
   // TODO: 見た目整える
   if (isLoading) {

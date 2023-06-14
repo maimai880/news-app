@@ -1,7 +1,7 @@
 import {AppBar, Toolbar, Typography} from '@mui/material'
 import {FC} from "react";
 import {SearchBar} from "@/features/article";
-import {LanguageSelector} from '@/features/language'
+import {CountrySelector} from '@/features/language'
 
 export const Header: FC = () => {
   return (
@@ -22,7 +22,7 @@ export const Header: FC = () => {
 
         <SearchBar/>
 
-        <LanguageSelector sx={{position: 'absolute', right: 20}}/>
+        <CountrySelector sx={{position: 'absolute', right: 20}}/>
       </Toolbar>
     </AppBar>
   );

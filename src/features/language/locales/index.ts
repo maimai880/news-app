@@ -1,14 +1,14 @@
-import {ja} from './ja'
-import {en} from "./en";
-import {es} from "./es";
-import {de} from "./de";
+import {jp} from './jp.ts'
+import {us} from "./us.ts";
 import {fr} from "./fr";
-import {Language} from "@/features/language";
+import {de} from "./de";
+import {it} from "./it";
+import {Country} from "@/features/language";
 
-export const locales: { [k in Language]: { [l: string]: string | Function } } = {
-  ja,
-  en,
-  es,
+export const locales: { [k in Country]: { [l: string]: string | Function } } = {
+  jp,
+  us,
+  fr,
   de,
-  fr
+  it,
 }

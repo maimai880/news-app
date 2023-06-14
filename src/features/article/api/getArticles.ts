@@ -6,11 +6,11 @@ import {Article, isNewsApiResponse} from "@/features/article";
 
 
 export const getArticles = async (
-  language: string,
+  country: string,
   query?: string
 ): Promise<Article[]> => {
   const response = await axios.get(
-    `https://newsapi.org/v2/top-headlines?apiKey=${import.meta.env.VITE_API_KEY}&country=${"jp"}${
+    `https://newsapi.org/v2/top-headlines?apiKey=${import.meta.env.VITE_API_KEY}&country=${country}${
       query ? `&q=${query}` : ''
     }`
   );
@@ -33,17 +33,17 @@ export const getArticles = async (
 type QueryFnType = typeof getArticles;
 
 type UseNewsOptions = {
-  language: Language;
+  country: Country;
   query?: string;
   config?: QueryConfig<QueryFnType>;
 };
 
-export const useNews = ({language, query, config}: UseNewsOptions) => {
+export const useNews = ({country, query, config}: UseNewsOptions) => {
   return useQuery<ExtractFnReturnType<QueryFnType>>({
     ...config,
-    queryKey: ['news', language, query],
-    queryFn: () => getArticles(language, query),
-    enabled: !!language
+    queryKey: ['news', country, query],
+    queryFn: () => getArticles(country, query),
+    enabled: !!country
   });
 };
 

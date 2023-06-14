@@ -1,15 +1,15 @@
 import {FC, MouseEvent, useRef, useState} from 'react'
 import {Box, Menu, MenuItem, SxProps} from '@mui/material'
 import {useAtom} from "jotai";
-import {languageAtom} from "@/features/language/states/languageAtom.ts";
-import {Language} from "@/features/language";
+import {countryAtom} from "@/features/language/states/countryAtom.ts";
+import {Country} from "@/features/language";
 import {SelectorButton} from "@/features/language/components/SelectorButton";
 
 interface Props {
   sx?: SxProps
 }
 
-export const LanguageSelector: FC<Props> = (props) => {
+export const CountrySelector: FC<Props> = (props) => {
   const buttonRef = useRef<HTMLButtonElement>(null)
   const [menuWidth, setMenuWidth] = useState(0)
 
@@ -21,9 +21,9 @@ export const LanguageSelector: FC<Props> = (props) => {
   };
   const handleClose = () => setAnchorEl(null);
 
-  const [language, setLanguage] = useAtom(languageAtom)
-  const changeLanguage = (lng: Language) => {
-    setLanguage(lng)
+  const [country, setCountry] = useAtom(countryAtom)
+  const handleItemClick = (lng: Country) => {
+    setCountry(lng)
     handleClose()
   }
 
@@ -37,11 +37,11 @@ export const LanguageSelector: FC<Props> = (props) => {
         onClose={handleClose}
         PaperProps={{sx: {width: menuWidth}}}
       >
-        <MenuItem selected={language === "ja"} onClick={() => changeLanguage("ja")}>日本語</MenuItem>
-        <MenuItem selected={language === "en"} onClick={() => changeLanguage("en")}>English</MenuItem>
-        <MenuItem selected={language === "es"} onClick={() => changeLanguage("es")}>Español</MenuItem>
-        <MenuItem selected={language === "de"} onClick={() => changeLanguage("de")}>Deutsch</MenuItem>
-        <MenuItem selected={language === "fr"} onClick={() => changeLanguage("fr")}>Français</MenuItem>
+        <MenuItem selected={country === "jp"} onClick={() => handleItemClick("jp")}>日本</MenuItem>
+        <MenuItem selected={country === "us"} onClick={() => handleItemClick("us")}>USA</MenuItem>
+        <MenuItem selected={country === "fr"} onClick={() => handleItemClick("fr")}>France</MenuItem>
+        <MenuItem selected={country === "de"} onClick={() => handleItemClick("de")}>Deutschland</MenuItem>
+        <MenuItem selected={country === "it"} onClick={() => handleItemClick("it")}>Italia</MenuItem>
       </Menu>
     </Box>
   );

@@ -1,4 +1,4 @@
-export * from "./components/LanguageSelector"
-export * from "./states/languageAtom.ts"
+export * from "./components/CountrySelector.tsx"
+export * from "./states/countryAtom.ts"
 export * from "./hooks/useTranslation"
 export * from "./types"
