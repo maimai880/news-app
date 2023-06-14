@@ -1,9 +1,8 @@
-import {isNewsApiResponse} from "@/features/article/type/NewsAPIResponse.ts";
 import {useQuery} from 'react-query';
 import {ExtractFnReturnType, QueryConfig} from "@/lib/react-query.ts";
-import {Language} from "@/features/language";
-import {Article} from "@/features/article/type/Article.ts";
+import {Country} from "@/features/language";
 import {axios} from "@/lib/axios.ts";
+import {Article, isNewsApiResponse} from "@/features/article";
 
 
 export const getArticles = async (

@@ -1,7 +1,7 @@
 import {Card, CardActionArea, CardContent, CardMedia, Typography} from '@mui/material';
 import {FC} from "react";
 import {useTranslation} from "@/features/language";
-import {Article} from "@/features/article/type/Article.ts";
+import {Article} from "@/features/article";
 
 interface Props {
   article: Article
@@ -10,6 +10,7 @@ interface Props {
 export const ArticleCard: FC<Props> = ({article}) => {
   const {t} = useTranslation()
 
+  // TODO: 読み込み時スケルトンを表示
   return (
     <Card sx={{display: 'flex', mb: 2, height: 162, borderRadius: 2}}>
       <CardActionArea
