@@ -6,7 +6,7 @@ export const useTranslation = () => {
   const language = useAtomValue(languageAtom)
 
   return {
-    t: <T extends keyof typeof locales["ja"]>(key: T, args?: object): string => {
+    t: (key: keyof typeof locales["ja"], args?: object): string => {
       const value = locales[language][key]
       if (!value) throw new Error(`Key ${key} not found in ${language} locale`)
 
