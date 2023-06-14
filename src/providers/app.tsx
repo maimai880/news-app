@@ -1,6 +1,8 @@
 import {CircularProgress, Grid, ThemeProvider} from "@mui/material";
 import {theme} from "@/theme.ts";
 import {FC, ReactNode, Suspense} from "react";
+import {QueryClientProvider} from "react-query";
+import {queryClient} from "@/lib/react-query.ts";
 
 interface Props {
   children?: ReactNode;
@@ -16,7 +18,9 @@ export const AppProvider: FC<Props> = (props) => {
           </Grid>
         }
       >
-        {props.children}
+        <QueryClientProvider client={queryClient}>
+          {props.children}
+        </QueryClientProvider>
       </Suspense>
     </ThemeProvider>
   );

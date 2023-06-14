@@ -1,9 +1,10 @@
 import {Card, CardActionArea, CardContent, CardMedia, Typography} from '@mui/material';
 import {FC} from "react";
 import {useTranslation} from "@/features/language";
+import {Article} from "@/features/article/type/Article.ts";
 
 interface Props {
-  article: { title: string, url: string, imageUrl: string, companyName: string, companyLogoUrl: string, date: Date }
+  article: Article
 }
 
 export const ArticleCard: FC<Props> = ({article}) => {
@@ -50,7 +51,7 @@ export const ArticleCard: FC<Props> = ({article}) => {
         </CardContent>
 
         <CardMedia
-          image={article.imageUrl} alt={article.title}
+          image={article.imageUrl || ""} alt={article.title}
           component="img"
           sx={{
             alignSelf: "center",
