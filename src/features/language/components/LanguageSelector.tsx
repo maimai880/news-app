@@ -27,8 +27,6 @@ export const LanguageSelector: FC<Props> = (props) => {
     handleClose()
   }
 
-  console.log(menuWidth)
-
   return (
     <Box sx={props.sx}>
       <SelectorButton ref={buttonRef} open={open} onClick={handleClick}/>
