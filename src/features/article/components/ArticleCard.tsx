@@ -33,15 +33,16 @@ export const ArticleCard: FC<Props> = ({article}) => {
           }}
         >
           <CardMedia
-            image={article.companyLogoUrl} alt={article.companyName}
+            src={article.companyLogo} alt={article.companyName}
             component="img"
-            sx={{mb: 2, width: 'auto'}}
+            sx={{mb: 1.5, width: 'auto', height: 25}}
           />
 
           <Typography
             variant="h6" component="h3"
             gutterBottom sx={{
             display: '-webkit-box',
+            pl: 0.5,
             lineHeight: 1.2,
             wordBreak: "break-all",
             overflow: 'hidden',

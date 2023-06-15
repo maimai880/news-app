@@ -3,6 +3,7 @@ import {ExtractFnReturnType, QueryConfig} from '@/lib/react-query.ts';
 import {Country} from '@/features/language';
 import {axios} from '@/lib/axios.ts';
 import {Article, isGNewsResponse} from '@/features/article';
+import {getLogo} from "@/features/article/utils/getLogo.ts";
 
 export const getArticles = async (
   country: string,
@@ -19,15 +20,14 @@ export const getArticles = async (
     throw new Error(`Invalid response data from GNews API: ${JSON.stringify(response)}`);
   }
 
-  // TODO: ロゴを取得
-  return response.articles.map((article) => ({
+  return Promise.all(response.articles.map(async (article) => ({
     title: article.title,
     url: article.url,
     imageUrl: article.image,
     companyName: article.source.name,
-    companyLogoUrl: '', // GNews API does not provide a company logo URL
+    companyLogo: await getLogo(article.source.url),
     date: new Date(article.publishedAt),
-  }));
+  })));
 };
 
 type QueryFnType = typeof getArticles;
