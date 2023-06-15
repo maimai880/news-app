@@ -33,7 +33,6 @@ export const ArticleCard: FC<Props> = ({article}) => {
             boxSizing: "border-box"
           }}
         >
-          {/*本文が長い時ロゴが隠れるのの修正*/}
           <CardMedia
             image={article.companyLogoUrl} alt={article.companyName}
             component="img"
@@ -42,7 +41,15 @@ export const ArticleCard: FC<Props> = ({article}) => {
 
           <Typography
             variant="h6" component="h3"
-            gutterBottom sx={{lineHeight: 1.2, wordBreak: "break-all"}}
+            gutterBottom sx={{
+            display: '-webkit-box',
+            lineHeight: 1.2,
+            wordBreak: "break-all",
+            overflow: 'hidden',
+            textOverflow: 'ellipsis',
+            WebkitBoxOrient: "vertical",
+            WebkitLineClamp: 2,
+          }}
           >
             {article.title}
           </Typography>
