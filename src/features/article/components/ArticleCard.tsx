@@ -64,7 +64,7 @@ export const ArticleCard: FC<Props> = ({article}) => {
           alignItems: 'center',
           justifyContent: 'center',
           mx: 2,
-          width: 120,
+          width: 135,
           height: "100%",
           flexShrink: 0,
         }}>
@@ -73,7 +73,7 @@ export const ArticleCard: FC<Props> = ({article}) => {
             component="img"
             sx={{
               width: 'auto',
-              maxWidth: 120,
+              maxWidth: "100%",
               maxHeight: '90%',
               borderRadius: 2,
             }}
