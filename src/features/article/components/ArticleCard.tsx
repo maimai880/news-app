@@ -1,5 +1,5 @@
-import {Box, Card, CardActionArea, CardContent, CardMedia, Typography} from '@mui/material';
-import {FC} from "react";
+import {Box, Card, CardActionArea, CardContent, CardMedia, CircularProgress, Typography} from '@mui/material';
+import {FC, useState} from "react";
 import {useTranslation} from "@/features/language";
 import {Article} from "@/features/article";
 
@@ -10,7 +10,6 @@ interface Props {
 export const ArticleCard: FC<Props> = ({article}) => {
   const {t} = useTranslation()
 
-  // TODO: 読み込み時スケルトンを表示
   return (
     <Card sx={{display: 'flex', mb: 2, height: 162, borderRadius: 2}}>
       <CardActionArea
@@ -59,27 +58,40 @@ export const ArticleCard: FC<Props> = ({article}) => {
           </Typography>
         </CardContent>
 
-        <Box sx={{
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          mx: 2,
-          width: 135,
-          height: "100%",
-          flexShrink: 0,
-        }}>
-          <CardMedia
-            image={article.imageUrl || ""} alt="サムネイル"
-            component="img"
-            sx={{
-              width: 'auto',
-              maxWidth: "100%",
-              maxHeight: '90%',
-              borderRadius: 2,
-            }}
-          />
-        </Box>
+        <Thumbnail url={article.imageUrl || ""}/>
       </CardActionArea>
     </Card>
   );
 };
+
+const Thumbnail: FC<{ url: string }> = ({url}) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  const handleImageLoad = () => {
+    setImageLoaded(true);
+  };
+
+  return (<Box sx={{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    mx: 2,
+    width: 135,
+    height: "100%",
+    flexShrink: 0,
+  }}>
+    <CardMedia
+      image={url || ""}
+      alt="サムネイル"
+      component="img"
+      sx={{
+        display: imageLoaded ? "block" : "none",
+        width: "auto",
+        maxWidth: "100%",
+        maxHeight: "90%",
+        borderRadius: 2,
+      }}
+      onLoad={handleImageLoad}
+    />
+    {imageLoaded ? null : <CircularProgress sx={{color: "text.secondary"}}/>}
+  </Box>)
+}
