@@ -1,3 +1,3 @@
-import {atomWithStorage} from "jotai/utils";
+import {atom} from "jotai";
 
-export const queryAtom = atomWithStorage<string>("query", "")
+export const queryAtom = atom<string>("")
