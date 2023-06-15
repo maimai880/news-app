@@ -1,4 +1,4 @@
-import {Card, CardActionArea, CardContent, CardMedia, Typography} from '@mui/material';
+import {Box, Card, CardActionArea, CardContent, CardMedia, Typography} from '@mui/material';
 import {FC} from "react";
 import {useTranslation} from "@/features/language";
 import {Article} from "@/features/article";
@@ -51,20 +51,26 @@ export const ArticleCard: FC<Props> = ({article}) => {
           </Typography>
         </CardContent>
 
-        <CardMedia
-          image={article.imageUrl || ""} alt={article.title}
-          component="img"
-          sx={{
-            alignSelf: "center",
-            mx: 2,
-            width: 120,
-            height: 'auto',
-            maxHeight: '100%',
-            objectFit: 'cover',
-            flexShrink: 0,
-            borderRadius: 2,
-          }}
-        />
+        <Box sx={{
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          mx: 2,
+          width: 120,
+          height: "100%",
+          flexShrink: 0,
+        }}>
+          <CardMedia
+            image={article.imageUrl || ""} alt="サムネイル"
+            component="img"
+            sx={{
+              width: 'auto',
+              maxWidth: 120,
+              maxHeight: '90%',
+              borderRadius: 2,
+            }}
+          />
+        </Box>
       </CardActionArea>
     </Card>
   );

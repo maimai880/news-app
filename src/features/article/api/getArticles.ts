@@ -20,6 +20,7 @@ export const getArticles = async (
     throw new Error(`Invalid response data from News API: ${JSON.stringify(response)}`);
   }
 
+  // TODO: ロゴを取得、良い感じの企業名を取得
   return response.articles.map((article) => ({
     title: article.title,
     url: article.url,
