@@ -3,7 +3,7 @@ import {Button} from "@mui/material";
 import {ArrowDropDown, Language as LanguageIcon} from "@mui/icons-material";
 
 interface Props {
-  ref: React.RefObject<HTMLButtonElement>
+  buttonRef: React.RefObject<HTMLButtonElement>
   onClick: (event: MouseEvent<HTMLElement>) => void
   open: boolean
 }
@@ -11,7 +11,7 @@ interface Props {
 export const SelectorButton: FC<Props> = (props) => {
   return (
     <Button
-      ref={props.ref}
+      ref={props.buttonRef}
       onClick={props.onClick}
       variant="outlined"
       color="info"
