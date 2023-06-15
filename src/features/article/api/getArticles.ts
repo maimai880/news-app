@@ -20,6 +20,7 @@ export const getArticles = async (
     throw new Error(`Invalid response data from GNews API: ${JSON.stringify(response)}`);
   }
 
+
   return Promise.all(response.articles.map(async (article) => ({
     title: article.title,
     url: article.url,

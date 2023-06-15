@@ -32,11 +32,15 @@ export const ArticleCard: FC<Props> = ({article}) => {
             boxSizing: "border-box"
           }}
         >
-          <CardMedia
-            src={article.companyLogo} alt={article.companyName}
-            component="img"
-            sx={{mb: 1.5, width: 'auto', height: 25}}
-          />
+          {
+            article.companyLogo ?
+              <CardMedia
+                src={article.companyLogo} alt={article.companyName}
+                component="img"
+                sx={{mb: 1.5, width: 'auto', height: 25}}
+              /> :
+              <Typography variant="body2" sx={{mb: 1.5}}>{article.companyName}</Typography>
+          }
 
           <Typography
             variant="h6" component="h3"

@@ -3,7 +3,7 @@ export interface Article {
   url: string;
   imageUrl: string | null;
   companyName: string;
-  companyLogo: string;
+  companyLogo: string | null;
   date: Date;
 }
 
