@@ -7,14 +7,14 @@ import {Article, isNewsApiResponse} from "@/features/article";
 
 export const getArticles = async (
   country: string,
-  query?: string
+  query: string
 ): Promise<Article[]> => {
   const response = await axios.get(
-    `https://newsapi.org/v2/top-headlines?apiKey=${import.meta.env.VITE_API_KEY}&country=${country}${
-      query ? `&q=${query}` : ''
-    }`
+    "https://newsapi.org/v2/top-headlines" +
+    `?apiKey=${import.meta.env.VITE_API_KEY}` +
+    `&country=${country}` +
+    `&q=${query}`
   );
-  console.log(response);
 
   if (!isNewsApiResponse(response)) {
     throw new Error(`Invalid response data from News API: ${JSON.stringify(response)}`);
@@ -35,11 +35,11 @@ type QueryFnType = typeof getArticles;
 
 type UseNewsOptions = {
   country: Country;
-  query?: string;
+  query: string;
   config?: QueryConfig<QueryFnType>;
 };
 
-export const useNews = ({country, query, config}: UseNewsOptions) => {
+export const useArticles = ({country, query, config}: UseNewsOptions) => {
   return useQuery<ExtractFnReturnType<QueryFnType>>({
     ...config,
     queryKey: ['news', country, query],

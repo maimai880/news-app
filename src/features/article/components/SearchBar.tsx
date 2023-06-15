@@ -1,21 +1,34 @@
-import {FC} from "react";
+import {FC, useState} from "react";
 import {Button, TextField} from "@mui/material";
 import SearchIcon from '@mui/icons-material/Search';
 import {useTranslation} from "@/features/language";
+import {useSetAtom} from "jotai";
+import {queryAtom} from "@/features/article";
 
 export const SearchBar: FC = () => {
+  const setQuery = useSetAtom(queryAtom)
+  const [value, setValue] = useState("")
+
   const {t} = useTranslation()
 
-  return (<>
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setQuery(value);
+  };
+
+  return (
+    <form onSubmit={handleSubmit} style={{display: "flex", flexDirection: "row"}}>
       <TextField
+        value={value}
+        onChange={(e) => setValue(e.target.value)}
         placeholder={t("ニュースを検索")}
         size="small"
         sx={{width: 410, "& fieldset": {borderRadius: 0}}}
       />
 
-      <Button variant="contained" size="large" sx={{width: 90, borderRadius: 0}}>
+      <Button type="submit" variant="contained" size="large" sx={{width: 90, borderRadius: 0}}>
         <SearchIcon/>
       </Button>
-    </>
+    </form>
   );
 };

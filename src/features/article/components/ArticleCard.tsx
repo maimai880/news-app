@@ -33,6 +33,7 @@ export const ArticleCard: FC<Props> = ({article}) => {
             boxSizing: "border-box"
           }}
         >
+          {/*本文が長い時ロゴが隠れるのの修正*/}
           <CardMedia
             image={article.companyLogoUrl} alt={article.companyName}
             component="img"

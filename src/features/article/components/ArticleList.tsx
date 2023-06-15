@@ -3,11 +3,13 @@ import {FC} from 'react';
 import {Box, CircularProgress, Grid, Typography} from '@mui/material';
 import {useAtom} from 'jotai';
 import {countryAtom, useTranslation} from "@/features/language";
-import {useNews} from "@/features/article/api/getArticles.ts";
+import {useArticles} from "@/features/article/api/getArticles.ts";
+import {queryAtom} from "@/features/article";
 
 export const ArticleList: FC = () => {
-  const [language] = useAtom(countryAtom);
-  const {data: articles, isLoading} = useNews({country: language});
+  const [country] = useAtom(countryAtom);
+  const [query] = useAtom(queryAtom);
+  const {data: articles, isLoading} = useArticles({country, query});
 
   const {t} = useTranslation()
 
@@ -17,7 +19,7 @@ export const ArticleList: FC = () => {
         <Grid item><CircularProgress/></Grid>
       </Grid>
     );
-  } else if (!articles) {
+  } else if (!articles?.length) {
     return (
       <Grid container width="100%" height="100%" alignItems='center' justifyContent='center' flexDirection="column">
         <Grid item>
