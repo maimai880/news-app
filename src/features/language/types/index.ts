@@ -1,1 +1,1 @@
-export type Country = "jp" | "us" | "fr" | "de" | "it"
+export type Country = "jp" | "us" | "fr" | "sp" | "it"

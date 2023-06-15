@@ -43,7 +43,7 @@ export const CountrySelector: FC<Props> = (props) => {
         <MenuItem selected={country === "jp"} onClick={() => handleItemClick("jp")}>日本</MenuItem>
         <MenuItem selected={country === "us"} onClick={() => handleItemClick("us")}>USA</MenuItem>
         <MenuItem selected={country === "fr"} onClick={() => handleItemClick("fr")}>France</MenuItem>
-        <MenuItem selected={country === "de"} onClick={() => handleItemClick("de")}>Deutschland</MenuItem>
+        <MenuItem selected={country === "sp"} onClick={() => handleItemClick("sp")}>España</MenuItem>
         <MenuItem selected={country === "it"} onClick={() => handleItemClick("it")}>Italia</MenuItem>
       </Menu>
     </Box>
