@@ -1,32 +1,31 @@
 import {useQuery} from 'react-query';
-import {ExtractFnReturnType, QueryConfig} from "@/lib/react-query.ts";
-import {Country} from "@/features/language";
-import {axios} from "@/lib/axios.ts";
-import {Article, isNewsApiResponse} from "@/features/article";
-
+import {ExtractFnReturnType, QueryConfig} from '@/lib/react-query.ts';
+import {Country} from '@/features/language';
+import {axios} from '@/lib/axios.ts';
+import {Article, isGNewsResponse} from '@/features/article';
 
 export const getArticles = async (
   country: string,
   query: string
 ): Promise<Article[]> => {
   const response = await axios.get(
-    "https://newsapi.org/v2/top-headlines" +
-    `?apiKey=${import.meta.env.VITE_API_KEY}` +
-    `&country=${country}` +
-    `&q=${query}`
+    "https://gnews.io/api/v4/top-headlines" +
+    `?apikey=${import.meta.env.VITE_API_KEY}` +
+    (query ? `&q=${encodeURI(query)}` : "") +
+    `&country=${country}`
   );
 
-  if (!isNewsApiResponse(response)) {
-    throw new Error(`Invalid response data from News API: ${JSON.stringify(response)}`);
+  if (!isGNewsResponse(response)) {
+    throw new Error(`Invalid response data from GNews API: ${JSON.stringify(response)}`);
   }
 
-  // TODO: ロゴを取得、良い感じの企業名を取得
+  // TODO: ロゴを取得
   return response.articles.map((article) => ({
     title: article.title,
     url: article.url,
-    imageUrl: article.urlToImage,
+    imageUrl: article.image,
     companyName: article.source.name,
-    companyLogoUrl: '', // News API does not provide a company logo URL
+    companyLogoUrl: '', // GNews API does not provide a company logo URL
     date: new Date(article.publishedAt),
   }));
 };
@@ -44,7 +43,6 @@ export const useArticles = ({country, query, config}: UseNewsOptions) => {
     ...config,
     queryKey: ['news', country, query],
     queryFn: () => getArticles(country, query),
-    enabled: !!country
+    enabled: !!country,
   });
 };
-
