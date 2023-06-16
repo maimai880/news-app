@@ -20,7 +20,7 @@ export const Header: FC = () => {
 
   return (
     <AppBar
-      position="sticky"
+      position="fixed"
       sx={{
         display: "flex",
         flexDirection: "row",
@@ -28,13 +28,14 @@ export const Header: FC = () => {
         p: {xs: 0.5, lg: 2},
         width: "100%",
         height: {xs: 72, lg: 102},
-        bgcolor: "white"
+        bgcolor: "white",
+        overflow: "hidden",
       }}
     >
       {
         showSearchHeader ?
           <SearchHeader handleBack={handleBack}/> :
-          <Toolbar sx={{position: "static", pr: 0, width: "100%", maxWidth: {xs: 850, ms: 650}}}>
+          <Toolbar sx={{position: "static", px: 0, width: "100%", maxWidth: {xs: 850, ms: 650}}}>
             <Typography
               variant="h1"
               color="primary.main"
@@ -70,5 +71,4 @@ export const Header: FC = () => {
       }
     </AppBar>
   )
-    ;
-};
+}
