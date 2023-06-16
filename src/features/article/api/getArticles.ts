@@ -1,19 +1,22 @@
-import {useQuery} from 'react-query';
-import {ExtractFnReturnType, QueryConfig} from '@/lib/react-query.ts';
-import {Country} from '@/features/language';
-import {axios} from '@/lib/axios.ts';
-import {Article, isGNewsResponse} from '@/features/article';
-import {getLogo} from "@/features/article/utils/getLogo.ts";
+import {useQuery} from "react-query"
+import {ExtractFnReturnType, QueryConfig} from "@/lib/react-query.ts"
+import {Country} from "@/features/language"
+import {axios} from "@/lib/axios.ts"
+import {Article, isGNewsResponse} from "@/features/article"
+import {getLogo} from "@/features/article/utils/getLogo.ts"
 
 export const getArticles = async (
   country: string,
   query: string
 ): Promise<Article[]> => {
   const response = await axios.get(
-    "https://gnews.io/api/v4/top-headlines" +
-    `?apikey=${import.meta.env.VITE_API_KEY}` +
-    (query ? `&q=${encodeURI(query)}` : "") +
-    `&country=${country}`
+    import.meta.env.VITE_API_URL || "https://gnews.io/api/v4/top-headlines", {
+      params: {
+        apikey: import.meta.env.VITE_API_KEY,
+        country,
+        q: query,
+      }
+    }
   );
 
   if (!isGNewsResponse(response)) {
