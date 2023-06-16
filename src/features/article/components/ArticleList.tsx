@@ -1,7 +1,7 @@
-import {ArticleCard} from './ArticleCard';
-import {FC} from 'react';
-import {Box} from '@mui/material';
-import {useAtom} from 'jotai';
+import {ArticleCard} from "./ArticleCard";
+import {FC} from "react";
+import {Box} from "@mui/material";
+import {useAtom} from "jotai";
 import {countryAtom} from "@/features/language";
 import {useArticles} from "@/features/article/api/getArticles.ts";
 import {queryAtom} from "@/features/article";
@@ -17,7 +17,7 @@ export const ArticleList: FC = () => {
     return (<NoArticle/>);
   } else {
     return (
-      <Box px={3}>
+      <Box px={{xs: 1, lg: 3}}>
         {
           !isLoading
             ? articles.map((article) => (

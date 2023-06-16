@@ -10,14 +10,29 @@ const App = () => {
 
   return (
     <AppProvider>
-      <Box display="flex" flexDirection="column" height="100%" overflow="hidden">
+      <Box display="flex" flexDirection="column" height="100%">
         <Header/>
 
-        <Container maxWidth="md" sx={{py: 3}}>
-          <Typography variant="h4" component="h2" gutterBottom sx={{fontSize: "1.75rem",}} mb={0.5}>
+        <Container maxWidth="md" sx={{py: {xs: 2, md: 3},}}>
+          <Typography
+            variant="h4"
+            component="h2"
+            gutterBottom
+            sx={{
+              fontSize: {xs: "1.45rem", md: "1.75rem"},
+              mb: 0.5,
+              whiteSpace: "nowrap"
+            }}
+          >
             {t("今日のニュース")}
           </Typography>
-          <Typography variant="h5" gutterBottom sx={{fontSize: ".875rem"}} color="text.secondary" mb={3}>
+          <Typography
+            variant="h5"
+            gutterBottom
+            sx={{fontSize: ".875rem", whiteSpace: "nowrap"}}
+            color="text.secondary"
+            mb={3}
+          >
             {t("{今日}")}
           </Typography>
 

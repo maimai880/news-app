@@ -12,18 +12,22 @@ export const NoArticle: FC = () => {
       flexDirection: "column",
       width: "100%",
       height: "100%",
-      alignItems: 'center'
+      alignItems: "center"
     }}>
       <img
         src="https://res.cloudinary.com/sivadass/image/upload/v1494699523/icons/bare-tree.png"
+        style={{width: "100%", maxWidth: "418px"}}
         alt="Empty Tree"
       />
-      <Typography variant="h5" component="h3" fontWeight="bold" color="text.secondary">
-        {t("一致する検索結果がありません")}
-      </Typography>
-      <Typography variant="body1" color="text.secondary">
-        {t("検索条件を変更して再度お試しください")}
-      </Typography>
+
+      <Box px={1}>
+        <Typography variant="h5" component="h3" color="text.secondary" fontWeight="bold" textAlign="center">
+          {t("一致する検索結果がありません")}
+        </Typography>
+        <Typography variant="body1" color="text.secondary" textAlign="center">
+          {t("検索条件を変更して再度お試しください")}
+        </Typography>
+      </Box>
     </Box>
   )
 }

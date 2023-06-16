@@ -1,4 +1,13 @@
-import {Box, Card, CardActionArea, CardContent, CardMedia, CircularProgress, Typography} from '@mui/material';
+import {
+  Box,
+  Card,
+  CardActionArea,
+  CardContent,
+  CardMedia,
+  CircularProgress,
+  Typography,
+  useMediaQuery
+} from "@mui/material";
 import {FC, useState} from "react";
 import {useTranslation} from "@/features/language";
 import {Article} from "@/features/article";
@@ -9,18 +18,19 @@ interface Props {
 
 // カードのスタイルを変えた時はskeletonCardも変更すること
 export const ArticleCard: FC<Props> = ({article}) => {
+  const isSmartPhone = useMediaQuery("(max-width: 499px)")
   const {t} = useTranslation()
 
   return (
-    <Card sx={{display: 'flex', mb: 2, height: 162, borderRadius: 2}}>
+    <Card sx={{display: "flex", mb: 2, height: 162, borderRadius: 2}}>
       <CardActionArea
         component="a" href={article.url} target="_blank" rel="noopener noreferrer"
         sx={{
-          display: 'flex',
+          display: "flex",
           flexGrow: 1,
-          alignItems: 'flex-start',
+          alignItems: "flex-start",
           height: "100%",
-          textDecoration: 'none',
+          textDecoration: "none",
         }}
       >
         <CardContent
@@ -29,6 +39,7 @@ export const ArticleCard: FC<Props> = ({article}) => {
             flexDirection: "column",
             alignItems: "flex-start",
             flexGrow: 1,
+            pr: !isSmartPhone ? "unset" : 0.4,
             height: "100%",
             boxSizing: "border-box"
           }}
@@ -38,23 +49,25 @@ export const ArticleCard: FC<Props> = ({article}) => {
               <CardMedia
                 src={article.companyLogo} alt={article.companyName}
                 component="img"
-                sx={{mb: 1.5, width: 'auto', height: 25}}
+                sx={{mb: 1.5, width: "auto", height: 25}}
               /> :
               <Typography variant="body2" sx={{mb: 1.5}}>{article.companyName}</Typography>
           }
 
           <Typography
             variant="h6" component="h3"
-            gutterBottom sx={{
-            display: '-webkit-box',
-            pl: 0.5,
-            lineHeight: 1.2,
-            wordBreak: "break-all",
-            overflow: 'hidden',
-            textOverflow: 'ellipsis',
-            WebkitBoxOrient: "vertical",
-            WebkitLineClamp: 2,
-          }}
+            gutterBottom
+            sx={{
+              display: "-webkit-box",
+              pl: 0.5,
+              fontSize: !isSmartPhone ? "1.18rem" : ".85rem",
+              lineHeight: 1.2,
+              wordBreak: "break-all",
+              overflow: "hidden",
+              textOverflow: "ellipsis",
+              WebkitBoxOrient: "vertical",
+              WebkitLineClamp: !isSmartPhone ? {xs: 3, lg: 2} : 4,
+            }}
           >
             {article.title}
           </Typography>
@@ -76,28 +89,29 @@ const Thumbnail: FC<{ url: string }> = ({url}) => {
     setImageLoaded(true);
   };
 
-  return (<Box sx={{
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    mx: 2,
-    width: 135,
-    height: "100%",
-    flexShrink: 0,
-  }}>
-    <CardMedia
-      image={url}
-      alt="サムネイル"
-      component="img"
-      sx={{
-        display: imageLoaded ? "block" : "none",
-        width: "auto",
-        maxWidth: "100%",
-        maxHeight: "90%",
-        borderRadius: 2,
-      }}
-      onLoad={handleImageLoad}
-    />
-    {imageLoaded ? null : <CircularProgress sx={{color: "text.secondary"}}/>}
-  </Box>)
+  return (
+    <Box sx={{
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      mx: {xs: 1, lg: 2},
+      width: {xs: "18%", lg: 135},
+      height: "100%",
+      flexShrink: 0,
+    }}>
+      <CardMedia
+        image={url}
+        alt="サムネイル"
+        component="img"
+        sx={{
+          display: imageLoaded ? "block" : "none",
+          width: "auto",
+          maxWidth: "100%",
+          maxHeight: "90%",
+          borderRadius: {xs: 0, lg: 2},
+        }}
+        onLoad={handleImageLoad}
+      />
+      {imageLoaded ? null : <CircularProgress sx={{color: "text.secondary"}}/>}
+    </Box>)
 }
