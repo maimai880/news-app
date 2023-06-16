@@ -20,11 +20,12 @@ export const Header: FC = () => {
 
   return (
     <AppBar
-      position="fixed"
+      position="sticky"
       sx={{
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
+        justifyContent: "center",
         p: {xs: 0.5, lg: 2},
         width: "100%",
         height: {xs: 72, lg: 102},

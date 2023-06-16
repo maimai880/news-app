@@ -10,10 +10,10 @@ const App = () => {
 
   return (
     <AppProvider>
-      <Box display="flex" flexDirection="column" height="100%">
+      <Box display="flex" flexDirection="column">
         <Header/>
 
-        <Container maxWidth="md" sx={{py: {xs: 2, md: 3},}}>
+        <Container maxWidth="md" sx={{py: {xs: 2, md: 3}}}>
           <Typography
             variant="h4"
             component="h2"
