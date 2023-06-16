@@ -10,7 +10,7 @@ const App = () => {
 
   return (
     <AppProvider>
-      <Box display="flex" flexDirection="column" height="100%">
+      <Box display="flex" flexDirection="column" height="100%" overflow="hidden">
         <Header/>
 
         <Container maxWidth="md" sx={{py: 3}}>

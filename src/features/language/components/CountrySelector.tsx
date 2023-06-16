@@ -1,11 +1,11 @@
-import {FC, MouseEvent, useEffect, useRef, useState} from 'react'
-import {Box, Menu, MenuItem, SxProps} from '@mui/material'
+import {FC, MouseEvent, useEffect, useRef, useState} from "react"
+import {Menu, MenuItem} from "@mui/material"
 import {useAtom} from "jotai";
 import {Country, countryAtom} from "@/features/language";
 import {SelectorButton} from "@/features/language/components/SelectorButton";
 
 interface Props {
-  sx?: SxProps
+  miniButton?: boolean
 }
 
 export const CountrySelector: FC<Props> = (props) => {
@@ -27,11 +27,11 @@ export const CountrySelector: FC<Props> = (props) => {
   const [menuWidth, setMenuWidth] = useState(0)
   useEffect(() => {
     setMenuWidth(buttonRef.current?.clientWidth || 0);
-  }, [buttonRef.current?.clientWidth])
+  }, [props.miniButton])
 
   return (
-    <Box sx={props.sx}>
-      <SelectorButton buttonRef={buttonRef} open={open} onClick={handleClick}/>
+    <>
+      <SelectorButton buttonRef={buttonRef} onClick={handleClick} open={open} miniButton={props.miniButton}/>
 
       <Menu
         anchorEl={anchorEl}
@@ -45,7 +45,7 @@ export const CountrySelector: FC<Props> = (props) => {
         <MenuItem selected={country === "sp"} onClick={() => handleItemClick("sp")}>España</MenuItem>
         <MenuItem selected={country === "it"} onClick={() => handleItemClick("it")}>Italia</MenuItem>
       </Menu>
-    </Box>
+    </>
   );
 };
 
