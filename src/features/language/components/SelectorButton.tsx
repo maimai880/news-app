@@ -1,9 +1,9 @@
-import {FC, MouseEvent} from "react";
+import {FC, MouseEvent, RefObject} from "react";
 import {Button} from "@mui/material";
 import {ArrowDropDown, Language as LanguageIcon} from "@mui/icons-material";
 
 interface Props {
-  buttonRef: React.RefObject<HTMLButtonElement>
+  buttonRef: RefObject<HTMLButtonElement>
   onClick: (event: MouseEvent<HTMLElement>) => void
   open: boolean
 }

@@ -9,12 +9,12 @@ export const SearchBar: FC = () => {
   const setQuery = useSetAtom(queryAtom)
   const [value, setValue] = useState("")
 
-  const {t} = useTranslation()
-
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setQuery(value);
   };
+
+  const {t} = useTranslation()
 
   return (
     <form onSubmit={handleSubmit} style={{display: "flex", flexDirection: "row"}}>

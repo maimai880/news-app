@@ -1,8 +1,7 @@
 import {FC, MouseEvent, useEffect, useRef, useState} from 'react'
 import {Box, Menu, MenuItem, SxProps} from '@mui/material'
 import {useAtom} from "jotai";
-import {countryAtom} from "@/features/language/states/countryAtom.ts";
-import {Country} from "@/features/language";
+import {Country, countryAtom} from "@/features/language";
 import {SelectorButton} from "@/features/language/components/SelectorButton";
 
 interface Props {
@@ -10,9 +9,9 @@ interface Props {
 }
 
 export const CountrySelector: FC<Props> = (props) => {
-
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
+
   const handleClick = (event: MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
   };

@@ -7,6 +7,7 @@ interface Props {
   article: Article
 }
 
+// カードのスタイルを変えた時はskeletonCardも変更すること
 export const ArticleCard: FC<Props> = ({article}) => {
   const {t} = useTranslation()
 
@@ -85,7 +86,7 @@ const Thumbnail: FC<{ url: string }> = ({url}) => {
     flexShrink: 0,
   }}>
     <CardMedia
-      image={url || ""}
+      image={url}
       alt="サムネイル"
       component="img"
       sx={{
