@@ -11,7 +11,9 @@ import {NoArticle} from "@/features/article/components/NoArticle.tsx"
 export const ArticleList: FC = () => {
   const [country] = useAtom(countryAtom)
   const [query] = useAtom(queryAtom)
-  const {data: articles, isLoading} = useArticles({country, query})
+  const {data: articles, isLoading, isError} = useArticles({country, query})
+
+  if (isError) throw new Error("Failed to load articles")
 
   if (articles?.length || isLoading) {
     return (
