@@ -1,16 +1,16 @@
-import {AppProvider} from "@/providers/app.tsx";
-import {Header} from "@/components/Header";
-import {Box, Container, Typography} from "@mui/material";
-import {ArticleList} from "@/features/article";
-import {Footer} from "@/components/Footer";
-import {useTranslation} from "@/features/language";
+import {AppProvider} from "@/providers/app.tsx"
+import {Header} from "@/components/Header"
+import {Box, Container, Typography} from "@mui/material"
+import {ArticleList} from "@/features/article"
+import {Footer} from "@/components/Footer"
+import {useTranslation} from "@/features/language"
 
 const App = () => {
   const {t} = useTranslation()
 
   return (
     <AppProvider>
-      <Box display="flex" flexDirection="column">
+      <Box display="flex" flexDirection="column" minHeight="100%">
         <Header/>
 
         <Container maxWidth="md" sx={{py: {xs: 2, md: 3}}}>
