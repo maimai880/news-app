@@ -1,10 +1,14 @@
 # NEWS-APP📰
 
 ![GitHub](https://img.shields.io/github/license/maimai880/news-app)
-
 reactで作成されたシンプルなニュースサイトです  
 ChatGPTを利用した開発の練習として作成しました  
-vite, ts, mui, jotai, などの技術を使用しています
+vite, ts, mui, jotai, などの技術を使用しています  
+[デプロイ用のAPI](https://github.com/maimai880/news-app-api)
+
+## LIVE DEMO
+
+https://news-app-one-silk.vercel.app/
 
 ## セットアップ&起動
 
