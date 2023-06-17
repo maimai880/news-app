@@ -17,10 +17,10 @@ export const getArticles = async (
         q: query,
       }
     }
-  );
+  )
 
   if (!isGNewsResponse(response)) {
-    throw new Error(`Invalid response data from GNews API: ${JSON.stringify(response)}`);
+    throw new Error(`Invalid response data from GNews API: ${JSON.stringify(response)}`)
   }
 
   return Promise.all(response.articles.map(async (article) => ({
@@ -30,8 +30,8 @@ export const getArticles = async (
     companyName: article.source.name,
     companyLogo: await getLogo(article.source.url),
     date: new Date(article.publishedAt),
-  })));
-};
+  })))
+}
 
 type QueryFnType = typeof getArticles;
 
@@ -44,8 +44,8 @@ type UseArticlesOptions = {
 export const useArticles = ({country, query, config}: UseArticlesOptions) => {
   return useQuery<ExtractFnReturnType<QueryFnType>>({
     ...config,
-    queryKey: ['articles', country, query],
+    queryKey: ["articles", country, query],
     queryFn: () => getArticles(country, query),
     enabled: !!country,
-  });
-};
+  })
+}

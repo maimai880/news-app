@@ -1,5 +1,5 @@
-import {format, formatDistanceToNow} from "date-fns";
-import {ja} from "date-fns/locale";
+import {format, formatDistanceToNow} from "date-fns"
+import {ja} from "date-fns/locale"
 
 export const jp = {
   "ニュースを検索": "ニュースを検索",

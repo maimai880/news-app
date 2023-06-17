@@ -1,5 +1,5 @@
-import {FC} from "react";
-import {BottomNavigation, Typography} from "@mui/material";
+import {FC} from "react"
+import {BottomNavigation, Typography} from "@mui/material"
 
 export const Footer: FC = () => {
   return (
@@ -8,5 +8,5 @@ export const Footer: FC = () => {
         © 2023 maimai880 All rights reserved.
       </Typography>
     </BottomNavigation>
-  );
-};
+  )
+}

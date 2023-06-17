@@ -1,6 +1,6 @@
-import {FC, MouseEvent, RefObject} from "react";
-import {Button} from "@mui/material";
-import {ArrowDropDown, Language as LanguageIcon} from "@mui/icons-material";
+import {FC, MouseEvent, RefObject} from "react"
+import {Button} from "@mui/material"
+import {ArrowDropDown, Language as LanguageIcon} from "@mui/icons-material"
 
 interface Props {
   buttonRef: RefObject<HTMLButtonElement>

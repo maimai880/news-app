@@ -1,21 +1,21 @@
 import {FC, MouseEvent, useEffect, useRef, useState} from "react"
 import {Menu, MenuItem} from "@mui/material"
-import {useAtom} from "jotai";
-import {Country, countryAtom} from "@/features/language";
-import {SelectorButton} from "@/features/language/components/SelectorButton";
+import {useAtom} from "jotai"
+import {Country, countryAtom} from "@/features/language"
+import {SelectorButton} from "@/features/language/components/SelectorButton"
 
 interface Props {
   miniButton?: boolean
 }
 
 export const CountrySelector: FC<Props> = (props) => {
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
-  const open = Boolean(anchorEl);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null)
+  const open = Boolean(anchorEl)
 
   const handleClick = (event: MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-  const handleClose = () => setAnchorEl(null);
+    setAnchorEl(event.currentTarget)
+  }
+  const handleClose = () => setAnchorEl(null)
 
   const [country, setCountry] = useAtom(countryAtom)
   const handleItemClick = (lng: Country) => {
@@ -26,7 +26,7 @@ export const CountrySelector: FC<Props> = (props) => {
   const buttonRef = useRef<HTMLButtonElement>(null)
   const [menuWidth, setMenuWidth] = useState(0)
   useEffect(() => {
-    setMenuWidth(buttonRef.current?.clientWidth || 0);
+    setMenuWidth(buttonRef.current?.clientWidth || 0)
   }, [props.miniButton])
 
   return (
@@ -46,6 +46,6 @@ export const CountrySelector: FC<Props> = (props) => {
         <MenuItem selected={country === "it"} onClick={() => handleItemClick("it")}>Italia</MenuItem>
       </Menu>
     </>
-  );
-};
+  )
+}
 

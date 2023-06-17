@@ -10,13 +10,13 @@ export const Header: FC = () => {
   const useMiniButton = useMediaQuery(() => theme.breakpoints.down("lg"))
   const isSmartPhone = useMediaQuery("(max-width:499px)")
 
-  const [showSearchHeader, setShowSearchHeader] = useState(false);
+  const [showSearchHeader, setShowSearchHeader] = useState(false)
   const handleSearch = () => {
-    setShowSearchHeader(true);
-  };
+    setShowSearchHeader(true)
+  }
   const handleBack = () => {
-    setShowSearchHeader(false);
-  };
+    setShowSearchHeader(false)
+  }
 
   return (
     <AppBar

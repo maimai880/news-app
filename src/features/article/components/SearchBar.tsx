@@ -1,18 +1,18 @@
-import {FC, useState} from "react";
-import {Button, TextField} from "@mui/material";
-import SearchIcon from "@mui/icons-material/Search";
-import {useTranslation} from "@/features/language";
-import {useSetAtom} from "jotai";
-import {queryAtom} from "@/features/article";
+import {FC, useState} from "react"
+import {Button, TextField} from "@mui/material"
+import SearchIcon from "@mui/icons-material/Search"
+import {useTranslation} from "@/features/language"
+import {useSetAtom} from "jotai"
+import {queryAtom} from "@/features/article"
 
 export const SearchBar: FC = () => {
   const setQuery = useSetAtom(queryAtom)
   const [value, setValue] = useState("")
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setQuery(value);
-  };
+    event.preventDefault()
+    setQuery(value)
+  }
 
   const {t} = useTranslation()
 
@@ -30,5 +30,5 @@ export const SearchBar: FC = () => {
         <SearchIcon/>
       </Button>
     </form>
-  );
-};
+  )
+}

@@ -1,7 +1,7 @@
-import {Box, IconButton} from "@mui/material";
-import {FC} from "react";
-import {ArrowBack} from "@mui/icons-material";
-import {SearchBar} from "@/features/article";
+import {Box, IconButton} from "@mui/material"
+import {FC} from "react"
+import {ArrowBack} from "@mui/icons-material"
+import {SearchBar} from "@/features/article"
 
 interface Props {
   handleBack: () => void

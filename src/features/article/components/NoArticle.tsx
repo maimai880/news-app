@@ -1,6 +1,6 @@
-import {FC} from "react";
-import {useTranslation} from "@/features/language";
-import {Box, Typography} from "@mui/material";
+import {FC} from "react"
+import {useTranslation} from "@/features/language"
+import {Box, Typography} from "@mui/material"
 
 export const NoArticle: FC = () => {
   const {t} = useTranslation()
@@ -8,7 +8,7 @@ export const NoArticle: FC = () => {
   return (
     <Box sx={{
       display: "flex",
-      justifyContent: 'center',
+      justifyContent: "center",
       flexDirection: "column",
       width: "100%",
       height: "100%",

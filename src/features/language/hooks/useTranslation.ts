@@ -1,7 +1,7 @@
-import {useAtomValue} from "jotai";
-import {countryAtom} from "@/features/language";
-import {locales} from "@/features/language/locales";
-import {jp} from "@/features/language/locales/jp.ts";
+import {useAtomValue} from "jotai"
+import {countryAtom} from "@/features/language"
+import {locales} from "@/features/language/locales"
+import {jp} from "@/features/language/locales/jp.ts"
 
 export const useTranslation = () => {
   const language = useAtomValue(countryAtom)

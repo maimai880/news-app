@@ -1,9 +1,9 @@
-import {Button, CircularProgress, Grid, ThemeProvider, Typography} from "@mui/material";
-import {theme} from "@/theme.ts";
-import {FC, ReactNode, Suspense} from "react";
-import {QueryClientProvider} from "react-query";
-import {queryClient} from "@/lib/react-query.ts";
-import {ErrorBoundary} from "react-error-boundary";
+import {Button, CircularProgress, Grid, ThemeProvider, Typography} from "@mui/material"
+import {theme} from "@/theme.ts"
+import {FC, ReactNode, Suspense} from "react"
+import {QueryClientProvider} from "react-query"
+import {queryClient} from "@/lib/react-query.ts"
+import {ErrorBoundary} from "react-error-boundary"
 
 interface Props {
   children?: ReactNode;
@@ -26,8 +26,8 @@ export const AppProvider: FC<Props> = (props) => {
         </ErrorBoundary>
       </Suspense>
     </ThemeProvider>
-  );
-};
+  )
+}
 
 const ErrorFallback = () => {
   return (
@@ -45,5 +45,5 @@ const ErrorFallback = () => {
         </Button>
       </Grid>
     </Grid>
-  );
+  )
 }

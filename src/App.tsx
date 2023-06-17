@@ -42,7 +42,7 @@ const App = () => {
         <Footer/>
       </Box>
     </AppProvider>
-  );
-};
+  )
+}
 
 export default App

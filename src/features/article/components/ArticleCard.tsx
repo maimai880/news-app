@@ -7,10 +7,10 @@ import {
   CircularProgress,
   Typography,
   useMediaQuery
-} from "@mui/material";
-import {FC, useState} from "react";
-import {useTranslation} from "@/features/language";
-import {Article} from "@/features/article";
+} from "@mui/material"
+import {FC, useState} from "react"
+import {useTranslation} from "@/features/language"
+import {Article} from "@/features/article"
 
 interface Props {
   article: Article
@@ -80,14 +80,14 @@ export const ArticleCard: FC<Props> = ({article}) => {
         <Thumbnail url={article.imageUrl || ""}/>
       </CardActionArea>
     </Card>
-  );
-};
+  )
+}
 
 const Thumbnail: FC<{ url: string }> = ({url}) => {
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false)
   const handleImageLoad = () => {
-    setImageLoaded(true);
-  };
+    setImageLoaded(true)
+  }
 
   return (
     <Box sx={{

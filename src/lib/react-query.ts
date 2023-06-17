@@ -1,5 +1,5 @@
-import {PromiseValue} from 'type-fest'
-import {QueryClient, UseQueryOptions} from "react-query";
+import {PromiseValue} from "type-fest"
+import {QueryClient, UseQueryOptions} from "react-query"
 
 export const queryClient = new QueryClient()
 
@@ -8,5 +8,5 @@ export type ExtractFnReturnType<FnType extends (...args: any) => any> =
 
 export type QueryConfig<QueryFnType extends (...args: any) => any> = Omit<
   UseQueryOptions<ExtractFnReturnType<QueryFnType>>,
-  'queryKey' | 'queryFn'
+  "queryKey" | "queryFn"
 >
