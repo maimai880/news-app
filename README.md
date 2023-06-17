@@ -10,7 +10,9 @@ vite, ts, mui, jotai, などの技術を使用しています
 
 ## LIVE DEMO
 
-https://news-app-one-silk.vercel.app/
+**⚠️ 広告ブロックがONになっていると一部UIが正しく表示されないので、OFFにして頂けると有難いです**  
+
+https://news-app-one-silk.vercel.app/  
 
 ## セットアップ&起動
 
