@@ -1,10 +1,10 @@
 import {AppBar, Box, Toolbar, Typography, useMediaQuery} from "@mui/material"
-import {FC, useState} from "react";
-import {SearchBar} from "@/features/article";
+import {FC, useState} from "react"
+import {SearchBar} from "@/features/article"
 import {CountrySelector} from "@/features/language"
-import {theme} from "@/theme.ts";
-import SearchIcon from "@mui/icons-material/Search";
-import {SearchHeader} from "@/components/Header/SearchHeader.tsx";
+import {theme} from "@/theme.ts"
+import SearchIcon from "@mui/icons-material/Search"
+import {SearchHeader} from "@/components/Header/SearchHeader.tsx"
 
 export const Header: FC = () => {
   const useMiniButton = useMediaQuery(() => theme.breakpoints.down("lg"))
@@ -36,7 +36,7 @@ export const Header: FC = () => {
       {
         showSearchHeader ?
           <SearchHeader handleBack={handleBack}/> :
-          <Toolbar sx={{position: "static", px: 0, width: "100%", maxWidth: {xs: 850, ms: 650}}}>
+          <Toolbar sx={{position: "static", px: 0, width: "100%", maxWidth: {xs: 850, sm: 650, lg: 700}}}>
             <Typography
               variant="h1"
               color="primary.main"
