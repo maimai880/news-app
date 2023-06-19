@@ -1,6 +1,5 @@
 import {getImageBase64} from "@/utils/getImageBase64.ts"
 import {getLogo} from "./getLogo.ts"
-import {expect, vi} from "vitest"
 import {dummyLogo} from "@/test/assets/dummyLogo.ts"
 import {croppedDummyLogo} from "@/test/assets/croppedDummyLogo.ts"
 import {JSDOM} from "jsdom"

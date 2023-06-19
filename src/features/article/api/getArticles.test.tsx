@@ -1,6 +1,5 @@
 import {getArticles} from "./getArticles.ts"
 import axios from "axios"
-import {beforeEach, expect, vi} from "vitest"
 
 // getLogoは個別でテスト
 vi.mock("@/features/article/utils/getLogo.ts", () => ({getLogo: () => null}))
