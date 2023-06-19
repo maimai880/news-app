@@ -5,7 +5,7 @@ export const getLogo = async (companyUrl: string): Promise<string | null> => {
   const imageBase64 =
     await getImageBase64(`https://logo.clearbit.com/${companyUrl}`).catch(() => null)
 
-  if (imageBase64 === null) {
+  if (!imageBase64) {
     return null
   }
 
