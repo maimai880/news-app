@@ -8,4 +8,5 @@ export const fr = {
   "{投稿時間}前": (arg: { date: Date }) => formatDistanceToNow(arg.date, {addSuffix: true, locale: dateFr}),
   "一致する検索結果がありません": "Aucun résultat de recherche correspondant n'a été trouvé",
   "検索条件を変更して再度お試しください": "Veuillez modifier vos critères de recherche et réessayer",
+  "エラーが発生しました": "Une erreur s'est produite",
 } as const
