@@ -24,7 +24,7 @@ describe("App", () => {
 
     render(<App/>)
 
-    expect(screen.getByText("エラーが発生しました。")).toBeInTheDocument()
+    expect(screen.getByText("エラーが発生しました")).toBeInTheDocument()
   })
 
   test("Countryメニューから国を選択すると見出しが翻訳される", () => {
