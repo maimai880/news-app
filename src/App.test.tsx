@@ -17,6 +17,12 @@ describe("App", () => {
     vi.resetAllMocks()
   })
 
+  test("見出しが正しくレンダリングされる", () => {
+    render(<App/>)
+
+    expect(screen.getByText("今日のニュース")).toBeInTheDocument()
+  })
+
   test("エラー発生時フォールバック画面を表示する", () => {
     mockedArticleList.mockImplementation(() => {
       throw new Error("test error")

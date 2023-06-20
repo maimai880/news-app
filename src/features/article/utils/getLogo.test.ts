@@ -6,8 +6,6 @@ import {JSDOM} from "jsdom"
 
 // getImageBase64は個別にテストする
 vi.mock("@/utils/getImageBase64.ts")
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
 const mockGetImageBase64 = getImageBase64 as jest.Mock
 
 const dom = new JSDOM(`<!DOCTYPE html><p>Hello world</p><canvas id="canvas"></canvas>`)
