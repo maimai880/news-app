@@ -17,10 +17,12 @@ describe("App", () => {
     vi.resetAllMocks()
   })
 
-  test("見出しが正しくレンダリングされる", () => {
+  test("記事以外のアプリ全体が正しくレンダリングされる", () => {
     render(<App/>)
 
+    expect(screen.getByRole("banner")).toBeInTheDocument()
     expect(screen.getByText("今日のニュース")).toBeInTheDocument()
+    expect(screen.getByRole("contentinfo")).toBeInTheDocument()
   })
 
   test("エラー発生時フォールバック画面を表示する", () => {
