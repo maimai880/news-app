@@ -34,7 +34,7 @@ export const Header: FC = () => {
       }}
     >
       {
-        showSearchHeader ?
+        isSmartPhone && showSearchHeader ?
           <SearchHeader handleBack={handleBack}/> :
           <Toolbar sx={{position: "static", px: 0, width: "100%", maxWidth: {xs: 850, sm: 650, lg: 700}}}>
             <Typography
