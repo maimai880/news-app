@@ -1,4 +1,4 @@
-import {AppBar, Box, Toolbar, Typography, useMediaQuery} from "@mui/material"
+import {AppBar, Box, IconButton, Toolbar, Typography, useMediaQuery} from "@mui/material"
 import {FC, useState} from "react"
 import {SearchBar} from "@/features/article"
 import {CountrySelector} from "@/features/language"
@@ -57,7 +57,9 @@ export const Header: FC = () => {
                 <Box sx={{mr: 3, width: "100%", maxWidth: 500}}>
                   <SearchBar/>
                 </Box> :
-                <SearchIcon color="primary" onClick={handleSearch} sx={{width: "auto", height: 40, mr: 2}}/>
+                <IconButton color="primary" onClick={handleSearch} sx={{mr: 1}}>
+                  <SearchIcon sx={{width: "auto", height: 40,}}/>
+                </IconButton>
             }
 
             <Box sx={{

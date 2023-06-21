@@ -17,7 +17,11 @@ export const SearchBar: FC = () => {
   const {t} = useTranslation()
 
   return (
-    <form onSubmit={handleSubmit} style={{display: "flex", flexDirection: "row", width: "100%"}}>
+    <form
+      onSubmit={handleSubmit}
+      style={{display: "flex", flexDirection: "row", width: "100%"}}
+      data-testid="SearchBar"
+    >
       <TextField
         value={value}
         onChange={(e) => setValue(e.target.value)}
