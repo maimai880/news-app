@@ -28,6 +28,7 @@ export const SearchBar: FC = () => {
         placeholder={t("ニュースを検索")}
         size="small"
         sx={{width: "100%", maxWidth: 410, "& fieldset": {borderRadius: 0}}}
+        data-testid="SearchBar.TextField"
       />
 
       <Button type="submit" variant="contained" size="large" sx={{width: 90, borderRadius: 0}}>
