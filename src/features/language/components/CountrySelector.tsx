@@ -39,13 +39,51 @@ export const CountrySelector: FC<Props> = (props) => {
         onClose={handleClose}
         PaperProps={{sx: {width: menuWidth}}}
       >
-        <MenuItem selected={country === "jp"} onClick={() => handleItemClick("jp")}>日本</MenuItem>
-        <MenuItem selected={country === "us"} onClick={() => handleItemClick("us")}>USA</MenuItem>
-        <MenuItem selected={country === "fr"} onClick={() => handleItemClick("fr")}>France</MenuItem>
-        <MenuItem selected={country === "sp"} onClick={() => handleItemClick("sp")}>España</MenuItem>
-        <MenuItem selected={country === "it"} onClick={() => handleItemClick("it")}>Italia</MenuItem>
+        {menuItems.map((item) => (
+          <Item
+            key={item.country}
+            country={item.country}
+            label={item.label}
+            currentCountry={country}
+            miniButton={!!props.miniButton}
+            handleClick={handleItemClick}
+          />
+        ))}
       </Menu>
     </>
   )
 }
+
+const menuItems: Array<{country: Country, label: string}> = [
+  {country: "jp", label: "日本"},
+  {country: "us", label: "USA"},
+  {country: "fr", label: "France"},
+  {country: "sp", label: "España"},
+  {country: "it", label: "Italia"},
+]
+
+interface ItemProps {
+  country: Country
+  label: string
+  currentCountry: Country
+  miniButton: boolean
+  handleClick: (lng: Country) => void
+}
+
+const Item: FC<ItemProps> = (props) => {
+  return (
+    <MenuItem
+      selected={props.country === props.currentCountry}
+      onClick={() => props.handleClick(props.country)}
+      sx={{
+        p: props.miniButton ? 0.7 : 1,
+        fontSize: props.miniButton ? ".8rem" : "1rem"
+    }}
+    >
+      {props.label}
+    </MenuItem>
+  )
+}
+
+
 
